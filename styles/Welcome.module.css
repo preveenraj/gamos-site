@@ -1,0 +1,140 @@
+.back {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation-name: back;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    }
+.love {
+    position: absolute;
+    background-color: rgb(207, 105, 112);
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-45deg);
+    animation-name: love;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+}
+.love::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(207, 105, 112);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    top: -75px;
+    left: 0px;
+}
+.love::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(207, 105, 112);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    left: 75px;
+    top: 0px;
+}
+
+@keyframes love {
+    50% {
+        transform: scale(0.3) rotate(-45deg);
+    }
+}
+/*love1*/
+.love1 {
+    position: absolute;
+    background-color: rgb(231, 132, 139);
+    width: 125px;
+    height: 125px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-45deg);
+    animation-name: love1;
+    animation-duration: 2s;
+    animation-delay: 1.7s;
+    animation-iteration-count: infinite;
+}
+.love1::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(231, 132, 139);
+    border-radius: 50%;
+    width: 125px;
+    height: 125px;
+    top: -62.5px;
+    left: 0px;
+}
+.love1::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(231, 132, 139);
+    border-radius: 50%;
+    width: 125px;
+    height: 125px;
+    left: 62.5px;
+    top: 0px;
+}
+
+@keyframes love1{
+    50% {
+        transform: scale(0.5) rotate(-45deg);
+    }
+}
+/*love2*/
+.love2 {
+    position: absolute;
+    background-color: pink;
+    width: 62.5px;
+    height: 62.5px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-45deg);
+    animation-name: love2;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+}
+.love2::before {
+    content: "";
+    position: absolute;
+    background-color: pink;
+    border-radius: 50%;
+    width: 62.5px;
+    height: 62.5px;
+    top: -31.25px;
+    left: 0px;
+}
+.love2::after {
+    content: "";
+    position: absolute;
+    background-color: pink;
+    border-radius: 50%;
+    width: 62.5px;
+    height: 62.5px;
+    left: 31.25px;
+    top: 0px;
+}
+
+@keyframes love2 {
+    50% {
+        transform: scale(0.25) rotate(-45deg);
+    }
+}
