@@ -3,8 +3,9 @@ import styles from '@styles/Welcome.module.css';
 
 const Welcome = () => {
   return (
-    <div className='relative h-[50vh] w-full flex justify-center'>
-      <div className="absolute h-full w-full">
+    <div className='relative h-[100vh] w-full flex justify-center'>
+      <div className={styles.banner}></div>
+      <div className="absolute right-0 h-full w-1/2 hidden sm:block">
         <div className={styles.back}></div>
         <div className={styles.love}></div>
         <div className={styles.love1}></div>

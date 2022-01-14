@@ -1,3 +1,21 @@
+.banner {
+    height: 100vh;
+    width: 100%;
+    background: url('/vishbanner.png');
+    object-fit: fill;
+    background-repeat: no-repeat;
+    background-size: cover;
+}    
+
+@media screen and (max-width: 600px) {
+    .banner {
+        background: url('/vishbannerphone.png');
+        object-fit: fill;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
 .back {
     position: absolute;
     padding: 0;
