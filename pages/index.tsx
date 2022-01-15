@@ -3,13 +3,23 @@ import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Icon from "@comp/Icon";
+import { getDatabase, ref, set, onValue } from "firebase/database";
 
 const Home: NextPage = () => {
   const [icons, setIcons] = useState([]);
   const [likeAnimation, setLikeAnimation] = useState(false);
+  const [likeCount, setLikeCount] = useState("-");
+
+  const database = getDatabase();
 
   useEffect(() => {
     addIconsToEvent();
+
+    const starCountRef = ref(database, "likes");
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      setLikeCount(data);
+    });
   }, []);
 
   const addIconsToEvent = () => {
@@ -42,6 +52,7 @@ const Home: NextPage = () => {
       setLikeAnimation(false);
     }, 1000);
     if (!isLiked) {
+      set(ref(database, 'likes'), (likeCount + 1));
     }
     localStorage.setItem("isLiked", "true");
   };
@@ -61,7 +72,7 @@ const Home: NextPage = () => {
           <h1 className="landing__name">Aswani</h1>
 
           <div className="landing__likes">
-            <div className="landing__likes-count">172</div>
+            <div className="landing__likes-count">{likeCount}</div>
             <div className="landing__likes-icon">
               <Image
                 src="/images/heart.svg"
