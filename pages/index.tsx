@@ -6,7 +6,7 @@ import Icon from "@comp/Icon";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 
 const Home: NextPage = () => {
-  const [icons, setIcons] = useState([]);
+  const [icons, setIcons] = useState<any>([]);
   const [likeAnimation, setLikeAnimation] = useState(false);
   const [likeCount, setLikeCount] = useState("-");
 
@@ -20,14 +20,14 @@ const Home: NextPage = () => {
       const data = snapshot.val();
       setLikeCount(data);
     });
-  }, []);
+  }, [database]);
 
   const addIconsToEvent = () => {
     const iconsArray = [];
     const iconCount =
       window.innerWidth < 500 ? 10 : window.innerWidth < 900 ? 30 : 50;
     for (let i = 0; i < iconCount; i++) {
-      const iconNo = parseInt(Math.random() * 9) + 1;
+      const iconNo = Math.floor(Math.random() * 9) + 1;
       iconsArray.push({
         key: "key" + i,
         iconNo,
@@ -102,7 +102,7 @@ const Home: NextPage = () => {
         </section>
 
         <section className="save">
-          {icons.map((icon) => (
+          {icons.map((icon:any) => (
             <Icon iconNo={icon.iconNo} key={icon.key} style={icon.style} />
           ))}
 
@@ -113,7 +113,7 @@ const Home: NextPage = () => {
                 Near Ernakulam Sava Temple
               </span>
               <span className="save__text-date">Feb 6, 2022</span>
-              <span className="save__text-event">they're getting married</span>
+              <span className="save__text-event">they&apos;re getting married</span>
             </div>
           </div>
         </section>
@@ -121,7 +121,7 @@ const Home: NextPage = () => {
         <footer className="footer">
           <div className="footer-wishes">
             Best wishes
-            <span>-Ajay, Anjali & Preveenraj</span>
+            <span>-Ajay, Anjali &amp; Preveenraj</span>
           </div>
         </footer>
 

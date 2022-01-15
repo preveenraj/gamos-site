@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Icon = ({ iconNo, style }) => {
+const Icon = ({ iconNo, style }:any) => {
   return (
     <div className="save__icon" style={style} key={iconNo}>
       <Image
