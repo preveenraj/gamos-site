@@ -24,6 +24,11 @@ a {
   --primary-color-dark: #FF1279;
 }
 
+.page {
+  width: 100%;
+  overflow: hidden;
+}
+
 .landing {
   width: 100%;
   height: 100vh;
@@ -85,8 +90,8 @@ a {
 
 
 .landing__likes-icon {
-  margin-top: 0.9rem;
-  margin-left: 0.5rem;
+  margin-top: 1.1rem;
+  margin-left: 1rem;
 
   animation-iteration-count: infinite;
   animation-duration: 3s;
@@ -393,6 +398,11 @@ a {
   .landing__name:nth-child(2) {
     bottom: 40%;
     right: 12%;
+  }
+
+  .landing__likes-icon {
+    margin-top: 1.1rem;
+    width: 2.25rem;
   }
 }
 

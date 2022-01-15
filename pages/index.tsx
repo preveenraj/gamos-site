@@ -9,6 +9,7 @@ const Home: NextPage = () => {
   const [icons, setIcons] = useState<any>([]);
   const [likeAnimation, setLikeAnimation] = useState(false);
   const [likeCount, setLikeCount] = useState("-");
+  const [daysRemaining, setDaysRemaining] = useState("-");
 
   const database = getDatabase();
 
@@ -20,6 +21,13 @@ const Home: NextPage = () => {
       const data = snapshot.val();
       setLikeCount(data);
     });
+
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    const firstDate = new Date();
+    const secondDate = new Date(2022, 1, 6);
+
+    const diffDays = Math.round(Math.abs((+firstDate - +secondDate) / oneDay));
+    setDaysRemaining(diffDays + '');
   }, [database]);
 
   const addIconsToEvent = () => {
@@ -52,7 +60,7 @@ const Home: NextPage = () => {
       setLikeAnimation(false);
     }, 1000);
     if (!isLiked) {
-      set(ref(database, 'likes'), (likeCount + 1));
+      set(ref(database, "likes"), likeCount + 1);
     }
     localStorage.setItem("isLiked", "true");
   };
@@ -76,8 +84,8 @@ const Home: NextPage = () => {
             <div className="landing__likes-icon">
               <Image
                 src="/images/heart.svg"
-                width="32"
-                height="36"
+                width="36"
+                height="30"
                 alt="likes"
               />
             </div>
@@ -95,14 +103,14 @@ const Home: NextPage = () => {
               </div>
             </button>
             <div className="landing__action-countdown">
-              <span className="landing__action-text">21 days</span>
+              <span className="landing__action-text">{daysRemaining} days</span>
               <span className="landing__action-text">Feb 6</span>
             </div>
           </div>
         </section>
 
         <section className="save">
-          {icons.map((icon:any) => (
+          {icons.map((icon: any) => (
             <Icon iconNo={icon.iconNo} key={icon.key} style={icon.style} />
           ))}
 
@@ -110,10 +118,12 @@ const Home: NextPage = () => {
             <div className="save__text-left">Save the date</div>
             <div className="save__text-right">
               <span className="save__text-place">
-                Near Ernakulam Sava Temple
+                Near Ernakulam Siva Temple
               </span>
               <span className="save__text-date">Feb 6, 2022</span>
-              <span className="save__text-event">they&apos;re getting married</span>
+              <span className="save__text-event">
+                they&apos;re getting married
+              </span>
             </div>
           </div>
         </section>
