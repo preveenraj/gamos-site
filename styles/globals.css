@@ -14,6 +14,7 @@ a {
 * {
   box-sizing: border-box;
   font-family: "Neonderthaw", cursive !important;
+  user-select: none;
 }
 
 :root {
@@ -39,7 +40,7 @@ a {
 }
 
 .landing__name:nth-child(1) {
-  bottom: 30%;
+  bottom: 35%;
   left: 20%;
 }
 
@@ -373,4 +374,45 @@ a {
   animation-name: like-icon__inner;
   animation-duration: 1s;
   animation-delay: .5s;
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    font-size: 10px;
+  }
+
+  .landing {
+    background-size: 110%;
+  }
+
+  .landing__name:nth-child(1) {
+    bottom: 35%;
+    left: 15%;
+  }
+  
+  .landing__name:nth-child(2) {
+    bottom: 40%;
+    right: 12%;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .landing {
+    background-size: 130%;
+  }
+
+  .save__text-left {
+    display: none;
+  }
+
+  .landing__name:nth-child(1) {
+    bottom: 35%;
+    left: 2rem;
+  }
+  
+  .landing__name:nth-child(2) {
+    bottom: 40%;
+    right: 2rem;
+  }
 }

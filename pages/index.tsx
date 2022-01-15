@@ -14,7 +14,9 @@ const Home: NextPage = () => {
 
   const addIconsToEvent = () => {
     const iconsArray = [];
-    for (let i = 0; i < 100; i++) {
+    const iconCount =
+      window.innerWidth < 500 ? 10 : window.innerWidth < 900 ? 30 : 50;
+    for (let i = 0; i < iconCount; i++) {
       const iconNo = parseInt(Math.random() * 9) + 1;
       iconsArray.push({
         key: "key" + i,
@@ -36,9 +38,10 @@ const Home: NextPage = () => {
     const isLiked = localStorage.getItem("isLiked");
 
     setLikeAnimation(true);
-    setTimeout(() => {setLikeAnimation(false)}, 1000);
+    setTimeout(() => {
+      setLikeAnimation(false);
+    }, 1000);
     if (!isLiked) {
-      
     }
     localStorage.setItem("isLiked", "true");
   };
@@ -123,9 +126,11 @@ const Home: NextPage = () => {
             height={603}
           />
         </div>
-        <div className={`like-icon__inner ${
+        <div
+          className={`like-icon__inner ${
             likeAnimation ? "like-icon__inner--active" : ""
-          }`}>
+          }`}
+        >
           <Image
             src={"/images/like-heart-inner.svg"}
             alt="Like Animation"
