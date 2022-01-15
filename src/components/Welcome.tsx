@@ -3,7 +3,7 @@ import styles from '@styles/Welcome.module.css';
 
 const Welcome = () => {
   return (
-    <div className='relative h-max w-full flex justify-center'>
+    <div className='relative h-screen w-full flex justify-center'>
       <div className={styles.banner}></div>
     </div>
   );
