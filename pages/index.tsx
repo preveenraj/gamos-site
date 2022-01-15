@@ -1,8 +1,37 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import Icon from "@comp/Icon";
 
 const Home: NextPage = () => {
+  const [icons, setIcons] = useState([]);
+
+  useEffect(() => {
+    addIconsToEvent();
+  }, []);
+
+  const addIconsToEvent = () => {
+    const iconsArray = [];
+    for (let i = 0; i < 100; i++) {
+      const iconNo = parseInt(Math.random() * 9) + 1;
+      iconsArray.push(
+        <Icon
+          iconNo={iconNo}
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            transform: `rotate(${Math.random() * 360}deg)`,
+            animationName: i % 2 === 0 ? 'tada' : 'swing',
+            animationDuration: `${Math.random() * 5 + 2}s`,
+          }}
+        />
+      );
+    }
+
+    setIcons(iconsArray);
+  };
+
   return (
     <>
       <Head>
@@ -32,28 +61,36 @@ const Home: NextPage = () => {
           <div className="landing__actions">
             <button className="landing__action-btn">
               <div>
-              <Image
-                src="/images/map.svg"
-                width="32"
-                height="32"
-                alt="location"
-              />
+                <Image
+                  src="/images/map.svg"
+                  width="32"
+                  height="32"
+                  alt="location"
+                />
               </div>
             </button>
             <div className="landing__action-countdown">
-              <span className="landing__action-text">
-                21 days
-              </span>
-              <span className="landing__action-text">
-                Feb 6
-              </span>
+              <span className="landing__action-text">21 days</span>
+              <span className="landing__action-text">Feb 6</span>
             </div>
           </div>
         </section>
 
-        <section className="">
+        <section className="save">
+          {icons.map((Icon) => Icon)}
 
+          <div className="save__text">
+            <div className="save__text-left">Save the date</div>
+            <div className="save__text-right">
+              <span className="save__text-place">
+                Near Ernakulam Sava Temple
+              </span>
+              <span className="save__text-date">Feb 6, 2022</span>
+              <span className="save__text-event">they're getting married</span>
+            </div>
+          </div>
         </section>
+
         <footer className="footer">
           <div className="footer-wishes">
             Best wishes

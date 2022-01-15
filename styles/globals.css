@@ -186,3 +186,103 @@ a {
   font-size: 1rem;
   display: block;
 }
+
+.save {
+  margin: 4rem 0;
+  padding: 10rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.save__text {
+  display: flex;
+  align-items: center;
+  gap: .1rem;
+}
+
+.save__text-left {
+  color: black;
+  font-size: 2.5rem;
+}
+
+.save__text-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.save__text-place {
+  color: #FF9900;
+  font-size: 1.7rem;
+}
+
+.save__text-date {
+  color: #FF3D91;
+  font-size: 6rem;
+  line-height: .7;
+}
+
+.save__text-event {
+  color: #FB1B1B;
+  font-size: 3rem;
+}
+
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+   
+@keyframes swing {
+  20% {
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+.save__icon {
+  z-index: -1;
+  position: absolute;
+  animation-iteration-count: infinite;
+}
