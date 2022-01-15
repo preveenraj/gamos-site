@@ -1,39 +1,67 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import Script from 'next/script';
-import ArealMap from '@comp/ArealMap';
-import Welcome from '@comp/Welcome';
-import Quotes from '@comp/Quotes';
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Aswani Weds Vishnu</title>
-        <meta name="description" content="We loved with a love that was more than love." />
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="We loved with a love that was more than love."
+        />
       </Head>
-      <Script
-        id="tailwindjitcdn"
-        src="https://unpkg.com/tailwindcss-jit-cdn"
-        // onLoad={() => {
-        // }}
-      />
+      <div className="page">
+        <section className="landing">
+          <h1 className="landing__name">Vishnu</h1>
+          <h1 className="landing__name">Aswani</h1>
 
-      <main className={styles.main}>
-        <Welcome />
-        <ArealMap />
-      </main>
+          <div className="landing__likes">
+            <div className="landing__likes-count">172</div>
+            <div className="landing__likes-icon">
+              <Image
+                src="/images/heart.svg"
+                width="32"
+                height="36"
+                alt="likes"
+              />
+            </div>
+          </div>
 
-      <footer className={styles.footer}>
-        Powered by{' '}
-        <span className={styles.logo}>
-          <Image src="https://firebasestorage.googleapis.com/v0/b/portfolio-bb9f1.appspot.com/o/images%2Fprrelax.png?alt=media&token=5e05bc37-9ebe-4c27-ab38-163a09472160" alt="Techrush Logo" width={72} height={72} />
-        </span>
-      </footer>
-    </div>
+          <div className="landing__actions">
+            <button className="landing__action-btn">
+              <div>
+              <Image
+                src="/images/map.svg"
+                width="32"
+                height="32"
+                alt="location"
+              />
+              </div>
+            </button>
+            <div className="landing__action-countdown">
+              <span className="landing__action-text">
+                21 days
+              </span>
+              <span className="landing__action-text">
+                Feb 6
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <section className="">
+
+        </section>
+        <footer className="footer">
+          <div className="footer-wishes">
+            Best wishes
+            <span>-Ajay, Anjali & Preveenraj</span>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 };
 
