@@ -6,6 +6,7 @@ import Icon from "@comp/Icon";
 
 const Home: NextPage = () => {
   const [icons, setIcons] = useState([]);
+  const [likeAnimation, setLikeAnimation] = useState(false);
 
   useEffect(() => {
     addIconsToEvent();
@@ -15,21 +16,31 @@ const Home: NextPage = () => {
     const iconsArray = [];
     for (let i = 0; i < 100; i++) {
       const iconNo = parseInt(Math.random() * 9) + 1;
-      iconsArray.push(
-        <Icon
-          iconNo={iconNo}
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            transform: `rotate(${Math.random() * 360}deg)`,
-            animationName: i % 2 === 0 ? 'tada' : 'swing',
-            animationDuration: `${Math.random() * 5 + 2}s`,
-          }}
-        />
-      );
+      iconsArray.push({
+        key: "key" + i,
+        iconNo,
+        style: {
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          transform: `rotate(${Math.random() * 360}deg)`,
+          animationName: i % 2 === 0 ? "tada" : "swing",
+          animationDuration: `${Math.random() * 5 + 2}s`,
+        },
+      });
     }
 
     setIcons(iconsArray);
+  };
+
+  const shareWishes = () => {
+    const isLiked = localStorage.getItem("isLiked");
+
+    setLikeAnimation(true);
+    setTimeout(() => {setLikeAnimation(false)}, 1000);
+    if (!isLiked) {
+      
+    }
+    localStorage.setItem("isLiked", "true");
   };
 
   return (
@@ -41,7 +52,7 @@ const Home: NextPage = () => {
           content="We loved with a love that was more than love."
         />
       </Head>
-      <div className="page">
+      <div className="page" onDoubleClick={shareWishes}>
         <section className="landing">
           <h1 className="landing__name">Vishnu</h1>
           <h1 className="landing__name">Aswani</h1>
@@ -77,7 +88,9 @@ const Home: NextPage = () => {
         </section>
 
         <section className="save">
-          {icons.map((Icon) => Icon)}
+          {icons.map((icon) => (
+            <Icon iconNo={icon.iconNo} key={icon.key} style={icon.style} />
+          ))}
 
           <div className="save__text">
             <div className="save__text-left">Save the date</div>
@@ -97,6 +110,29 @@ const Home: NextPage = () => {
             <span>-Ajay, Anjali & Preveenraj</span>
           </div>
         </footer>
+
+        <div
+          className={`like-icon__outer ${
+            likeAnimation ? "like-icon__outer--active" : ""
+          }`}
+        >
+          <Image
+            src={"/images/like-heart-outer.svg"}
+            alt="Like Animation"
+            width={714}
+            height={603}
+          />
+        </div>
+        <div className={`like-icon__inner ${
+            likeAnimation ? "like-icon__inner--active" : ""
+          }`}>
+          <Image
+            src={"/images/like-heart-inner.svg"}
+            alt="Like Animation"
+            width={592}
+            height={468}
+          />
+        </div>
       </div>
     </>
   );

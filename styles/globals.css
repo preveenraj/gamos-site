@@ -60,9 +60,36 @@ a {
   display: flex;
 }
 
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+
+  70% {
+    transform: scale3d(.8, .8, .8);
+  }
+
+  80% {
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
 .landing__likes-icon {
   margin-top: 0.9rem;
   margin-left: 0.5rem;
+
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  animation-name: pulse;
 }
 
 .landing__likes-count {
@@ -188,7 +215,7 @@ a {
 }
 
 .save {
-  margin: 4rem 0;
+  margin: 10rem 0;
   padding: 10rem 0;
   display: flex;
   justify-content: center;
@@ -285,4 +312,65 @@ a {
   z-index: -1;
   position: absolute;
   animation-iteration-count: infinite;
+}
+
+.like-icon__inner {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.like-icon__outer {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+@keyframes like-icon__outer {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes like-icon__inner {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(5);
+    opacity: 0;
+  }
+}
+
+.like-icon__outer--active {
+  animation-name: like-icon__outer;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.like-icon__inner--active {
+  animation-fill-mode: forwards;
+  animation-name: like-icon__inner;
+  animation-duration: 1s;
+  animation-delay: .5s;
 }
