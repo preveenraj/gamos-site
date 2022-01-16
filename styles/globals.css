@@ -56,7 +56,7 @@ a {
 
 .landing__likes {
   background-color: var(--primary-color);
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 5rem;
   border-bottom-right-radius: 1rem;
@@ -64,6 +64,11 @@ a {
   height: 4rem;
   padding: 0 1rem;
   display: flex;
+  transition: all 0.3s ease-in-out;
+}
+
+.landing__likes-active {
+  padding: 0 2rem;
 }
 
 @keyframes pulse {
@@ -418,11 +423,11 @@ a {
 
   .landing__name:nth-child(1) {
     bottom: 35%;
-    left: 2rem;
+    left: 1rem;
   }
   
   .landing__name:nth-child(2) {
-    bottom: 40%;
-    right: 2rem;
+    bottom: 53%;
+    right: 1rem;
   }
 }

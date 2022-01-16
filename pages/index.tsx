@@ -56,6 +56,7 @@ const Home: NextPage = () => {
     if (typeof likeCount !== 'string') {
       const isLiked = localStorage.getItem("isLiked");
       setLikeAnimation(true);
+      window.navigator.vibrate(200);
       setTimeout(() => {
         setLikeAnimation(false);
       }, 1000);
@@ -80,7 +81,7 @@ const Home: NextPage = () => {
           <h1 className="landing__name">Vishnu</h1>
           <h1 className="landing__name">Aswani</h1>
 
-          <div className="landing__likes">
+          <div className={`landing__likes ${likeAnimation ? "landing__likes-active" : ""}`}>
             <div className="landing__likes-count">{likeCount}</div>
             <div className="landing__likes-icon">
               <Image
