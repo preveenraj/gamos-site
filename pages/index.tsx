@@ -53,16 +53,17 @@ const Home: NextPage = () => {
   };
 
   const shareWishes = () => {
-    const isLiked = localStorage.getItem("isLiked");
-
-    setLikeAnimation(true);
-    setTimeout(() => {
-      setLikeAnimation(false);
-    }, 1000);
-    if (!isLiked) {
-      set(ref(database, "likes"), likeCount + 1);
+    if (typeof likeCount !== 'string') {
+      const isLiked = localStorage.getItem("isLiked");
+      setLikeAnimation(true);
+      setTimeout(() => {
+        setLikeAnimation(false);
+      }, 1000);
+      if (!isLiked) {
+        set(ref(database, "likes"), likeCount + 1);
+      }
+      localStorage.setItem("isLiked", "true");
     }
-    localStorage.setItem("isLiked", "true");
   };
 
   return (
