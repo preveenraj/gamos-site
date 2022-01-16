@@ -111,10 +111,10 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
-
+{/* 
         <section >
         <iframe className="youtube_embed" src="https://www.youtube.com/embed/8Q3UM67a66g" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-        </section>
+        </section> */}
 
         <section className="save">
           {icons.map((icon: any) => (
