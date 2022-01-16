@@ -80,7 +80,7 @@ const Home: NextPage = () => {
           <h1 className="landing__name">Aswani</h1>
 
           <div className="landing__likes">
-            <div className="landing__likes-count">{likeCount}</div>
+            <div className="landing__likes-count">{567}</div>
             <div className="landing__likes-icon">
               <Image
                 src="/images/heart.svg"
