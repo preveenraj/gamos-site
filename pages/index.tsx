@@ -95,12 +95,14 @@ const Home: NextPage = () => {
           <div className="landing__actions">
             <button className="landing__action-btn">
               <div>
+                <a href="https://maps.app.goo.gl/h5QvKCrQV9i4FtSY9" className="" target="_blank" rel="noreferrer" >
                 <Image
                   src="/images/map.svg"
                   width="32"
                   height="32"
                   alt="location"
                 />
+                </a>
               </div>
             </button>
             <div className="landing__action-countdown">
@@ -108,6 +110,10 @@ const Home: NextPage = () => {
               <span className="landing__action-text">Feb 6</span>
             </div>
           </div>
+        </section>
+
+        <section >
+        <iframe className="youtube_embed" src="https://www.youtube.com/embed/8Q3UM67a66g" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </section>
 
         <section className="save">
