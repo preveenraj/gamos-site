@@ -10,10 +10,19 @@ const Home: NextPage = () => {
   const [likeAnimation, setLikeAnimation] = useState(false);
   const [likeCount, setLikeCount] = useState("-");
   const [daysRemaining, setDaysRemaining] = useState("-");
-
+  const [audio, setAudio] = useState<HTMLAudioElement>({} as HTMLAudioElement);
   const database = getDatabase();
 
+  const initializeAudio = () => {
+    const sound = new Audio();
+    sound.src = "/bgm_love.mp3";
+    // set audio volume
+    sound.volume = 0.1;
+    setAudio(sound);
+  }
+
   useEffect(() => {
+    initializeAudio();
     addIconsToEvent();
 
     const starCountRef = ref(database, "likes");
@@ -64,11 +73,11 @@ const Home: NextPage = () => {
         set(ref(database, "likes"), likeCount + 1);
       }
       localStorage.setItem("isLiked", "true");
-      const audio = new Audio();
-      audio.src = "/bgm_love.mp3";
-      // set audio volume
-      audio.volume = 0.1;
-      audio.play();
+      if (!audio.paused) {
+        audio.pause();
+      } else {
+        audio.play();
+      }
     }
   };
 
