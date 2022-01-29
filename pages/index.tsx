@@ -64,6 +64,11 @@ const Home: NextPage = () => {
         set(ref(database, "likes"), likeCount + 1);
       }
       localStorage.setItem("isLiked", "true");
+      const audio = new Audio();
+      audio.src = "/bgm_love.mp3";
+      // set audio volume
+      audio.volume = 0.1;
+      audio.play();
     }
   };
 
