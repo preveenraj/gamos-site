@@ -30,6 +30,7 @@ a {
 }
 
 .landing {
+  position: relative;
   width: 100%;
   height: 100vh;
   background-image: url(/images/home-bg.jpeg);
@@ -37,6 +38,36 @@ a {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.calendar_banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-name: banner_down_up;
+}
+
+
+@keyframes banner_down_up {
+  from {
+    transform: translateY(-100%);
+  }
+
+  50% {
+    transform: translateY(0%);
+  }
+
+  to {
+    transform: translateY(-100%)
+  }
+}
+
 
 .landing__name {
   font-size: 3rem;
@@ -209,6 +240,7 @@ a {
 }
 
 .footer {
+  position: relative;
   display: flex;
   justify-content: center;
   margin: 2rem 0;
@@ -434,6 +466,12 @@ a {
   }
 }
 
+.youtube_embed_container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .youtube_embed {
   width: 100%;
   height: 100vh;
@@ -509,3 +547,20 @@ a {
     min-height:40px;
   }
 }
+
+/* Add to calendar */
+.add_to_calendar {
+  position: absolute;
+  bottom: 15px;
+  left: 5px;
+  overflow: visible;
+}
+
+.calendar_icon {
+  transition: all .2s ease-in-out;
+}
+
+.calendar_icon:hover {
+  transform: scale(1.1);
+}
+
