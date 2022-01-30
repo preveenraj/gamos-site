@@ -125,11 +125,24 @@ const Home: NextPage = () => {
               <span className="landing__action-text">Feb 6</span>
             </div>
           </div>
+          <div className="waves__container">
+            <svg className="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
+              <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+              </defs>
+              <g className="parallax">
+                <use xlinkHref="#gentle-wave" x={48} y={0} fill="rgba(27, 155, 252,0.7" />
+                <use xlinkHref="#gentle-wave" x={48} y={3} fill="rgba(27, 155, 252,0.5)" />
+                <use xlinkHref="#gentle-wave" x={48} y={5} fill="rgba(27, 155, 252,0.3)" />
+                <use xlinkHref="#gentle-wave" x={48} y={7} fill="#1b9bfc" />
+              </g>
+            </svg>
+          </div>
         </section>
-{/* 
+
         <section >
-        <iframe className="youtube_embed" src="https://www.youtube.com/embed/8Q3UM67a66g" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-        </section> */}
+        <iframe className="youtube_embed" src="https://www.youtube.com/embed/gsvtQwAkhF8" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        </section>
 
         <section className="save">
           {icons.map((icon: any) => (
