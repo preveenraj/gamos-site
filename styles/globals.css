@@ -578,6 +578,7 @@ a {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
   opacity: 1;
   transition: all 0.5s;
+  text-align: center;
 }
 
 .like-hint-hidden {
