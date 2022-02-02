@@ -11,6 +11,7 @@ const Home: NextPage = () => {
   const [likeCount, setLikeCount] = useState('-');
   const [daysRemaining, setDaysRemaining] = useState('-');
   const [audio, setAudio] = useState<HTMLAudioElement>({} as HTMLAudioElement);
+  const [isLiked, setIsLiked] = useState(true);
   const database = getDatabase();
 
   const initializeAudio = () => {
@@ -21,6 +22,10 @@ const Home: NextPage = () => {
     sound.autoplay = true;
     setAudio(sound);
   };
+
+  useEffect(() => {
+    setIsLiked(!!localStorage.getItem('isLiked'));
+  }, []);
 
   useEffect(() => {
     initializeAudio();
@@ -63,7 +68,6 @@ const Home: NextPage = () => {
 
   const shareWishes = () => {
     if (typeof likeCount !== 'string') {
-      const isLiked = localStorage.getItem('isLiked');
       setLikeAnimation(true);
       window.navigator.vibrate && window.navigator.vibrate(200);
       setTimeout(() => {
@@ -73,6 +77,7 @@ const Home: NextPage = () => {
         set(ref(database, 'likes'), likeCount + 1);
       }
       localStorage.setItem('isLiked', 'true');
+      setIsLiked(true);
       if (!audio.paused) {
         audio.pause();
       } else {
@@ -182,9 +187,11 @@ const Home: NextPage = () => {
         <div className={`like-icon__inner ${likeAnimation ? 'like-icon__inner--active' : ''}`}>
           <Image src={'/images/like-heart-inner.svg'} alt="Like Animation" width={592} height={468} />
         </div>
-      </div>
 
-      <audio className="audio"></audio>
+        <div className={`like-hint ${isLiked ? 'like-hint-hidden' : ''}`}>
+          Double tap to like ♥
+        </div>
+      </div>
     </>
   );
 };

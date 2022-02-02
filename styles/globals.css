@@ -247,7 +247,7 @@ a {
 }
 
 .footer-wishes {
-  font-size: 3rem;
+  font-size: 4rem;
   color: black;
   display: flex;
   flex-direction: column;
@@ -255,7 +255,7 @@ a {
 }
 
 .footer-wishes span {
-  font-size: 1rem;
+  font-size: 1.5rem;
   display: block;
 }
 
@@ -564,3 +564,40 @@ a {
   transform: scale(1.1);
 }
 
+.like-hint {
+  position: fixed;
+  left: 50%;
+  bottom: 10rem;
+  font-size: 3rem;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: .3em 1em;
+  color: black;
+  border-radius: 1em;
+  animation: like-hint 1s ease-in-out infinite;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.like-hint-hidden {
+  opacity: 0;
+  scale: 0;
+}
+
+@keyframes like-hint {
+  from {
+    color: rgb(27, 155, 252);
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+  70% {
+    color: var(--primary-color);
+    transform: translate3d(-50%, 10px, 10px) scale(.9);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px;
+  }
+  to {
+    color: rgb(27, 155, 252);
+    transform: translate3d(-50%, 0, 0) scale(1);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+  }
+}
