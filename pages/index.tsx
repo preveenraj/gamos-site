@@ -18,6 +18,7 @@ const Home: NextPage = () => {
     sound.src = '/bgm_love.mp3';
     // set audio volume
     sound.volume = 0.1;
+    sound.autoplay = true;
     setAudio(sound);
   };
 
@@ -64,7 +65,7 @@ const Home: NextPage = () => {
     if (typeof likeCount !== 'string') {
       const isLiked = localStorage.getItem('isLiked');
       setLikeAnimation(true);
-      window.navigator.vibrate(200);
+      window.navigator.vibrate && window.navigator.vibrate(200);
       setTimeout(() => {
         setLikeAnimation(false);
       }, 1000);
@@ -182,6 +183,8 @@ const Home: NextPage = () => {
           <Image src={'/images/like-heart-inner.svg'} alt="Like Animation" width={592} height={468} />
         </div>
       </div>
+
+      <audio className="audio"></audio>
     </>
   );
 };
